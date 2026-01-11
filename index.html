@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="Tabkha Favicon.ico">
+    
+    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabkha | Coming Soon</title>
+    <style>
+        :root {
+            --primary-blue: #00227b; 
+            --accent-cyan: #00a0e3;   
+            --bg-color: #000000; 
+            --text-white: #ffffff;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .logo {
+            width: 78%; /* Reduced size from 90% to 50% */
+            max-width: 300px; 
+            height: auto;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        h1 {
+            font-size: 1.4rem; 
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--accent-cyan);
+            font-weight: 400;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            height: 1px;
+            width: 60px;
+            background-color: var(--accent-cyan);
+            margin: 0 auto;
+            opacity: 0.5;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 30px;
+            width: 100%;
+            font-size: 0.8rem;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.1rem; }
+            .logo { width: 60%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="Tabkha Logo.png" alt="Tabkha Logo" class="logo">
+        
+        <div class="divider"></div>
+        
+        <h1>Coming Soon</h1>
+        <p>Get ready for the Charm!</p>
+    </div>
+
+    <footer>
+        All rights reserved to Tawwarly for Technical Consultancy&copy; 2026
+    </footer>
+
+</body>
+</html>
