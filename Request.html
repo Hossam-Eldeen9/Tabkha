@@ -23,6 +23,8 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .form-container {
@@ -30,16 +32,16 @@
             padding: 40px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 90%;
+            width: 100%;
             max-width: 500px;
             text-align: center;
         }
 
-        h2 { color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 2px; }
+        h2 { color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        p { font-size: 0.9rem; color: #888; margin-bottom: 30px; }
 
-        .form-group { text-align: left; margin-bottom: 15px; }
-
-        label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: #ccc; }
+        .form-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: #ccc; }
 
         input, select, textarea {
             width: 100%;
@@ -49,6 +51,12 @@
             background: #111;
             color: white;
             box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
         }
 
         .submit-btn {
@@ -58,30 +66,40 @@
             padding: 15px 30px;
             border-radius: 12px;
             font-weight: bold;
+            font-size: 1rem;
             cursor: pointer;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 10px;
             transition: 0.3s;
         }
 
         .submit-btn:hover { background: #0033bb; transform: translateY(-2px); }
 
-        .back-link { display: block; margin-top: 20px; color: #666; text-decoration: none; font-size: 0.8rem; }
+        .back-link { 
+            display: inline-block; 
+            margin-top: 25px; 
+            color: #666; 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--accent-cyan); }
     </style>
 </head>
 <body>
 
     <div class="form-container">
-        <h2>Beta Access Request</h2>
-        <p>Join the Tabkha inner circle.</p>
+        <h2>Request Beta Access</h2>
+        <p>Fill in your details to join the testing team.</p>
 
         <form action="https://formspree.io/f/mnjbaowd" method="POST">
             <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" name="name" required>
+                <input type="text" name="name" placeholder="Hossam Mahmoud" required>
             </div>
 
-            <div class="form-row" style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 15px;">
                 <div class="form-group" style="flex: 1;">
                     <label>Age</label>
                     <input type="number" name="age" required>
@@ -94,13 +112,13 @@
 
             <div class="form-group">
                 <label>Email Address</label>
-                <input type="email" name="_replyto" required>
+                <input type="email" name="email" placeholder="info@tawwarly.com" required>
             </div>
 
             <div class="form-group">
                 <label>Device Type</label>
                 <select name="device" required>
-                    <option value="" disabled selected>Select your device</option>
+                    <option value="" disabled selected>Choose your device</option>
                     <option value="iOS">iOS (iPhone)</option>
                     <option value="Android">Android</option>
                 </select>
@@ -108,13 +126,13 @@
 
             <div class="form-group">
                 <label>Reason for Interest</label>
-                <textarea name="message" rows="3"></textarea>
+                <textarea name="reason" rows="3" placeholder="I love cooking and want to try new recipes!"></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">Send Request</button>
+            <button type="submit" class="submit-btn">Submit Request</button>
         </form>
 
-        <a href="index.html" class="back-link">← Back to Main Page</a>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Main Page</a>
     </div>
 
 </body>
