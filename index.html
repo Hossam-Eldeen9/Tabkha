@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabkha | Coming Soon</title>
-    
     <link rel="icon" type="image/png" href="Favicon for the website.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
         :root {
             --primary-blue: #00227b; 
@@ -17,7 +15,6 @@
             --glass-bg: rgba(255, 255, 255, 0.1);
         }
 
-        /* The 'Full Height' fix to prevent button/footer overlap */
         body, html {
             height: 100%;
             margin: 0;
@@ -29,7 +26,6 @@
             flex-direction: column;
         }
 
-        /* This pushes the footer to the bottom */
         .main-content {
             flex: 1;
             display: flex;
@@ -37,7 +33,6 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            box-sizing: border-box;
         }
 
         .container {
@@ -50,22 +45,18 @@
         }
 
         .logo {
-            
             width: 70%;
             max-width: 280px; 
             height: auto;
-            /* ADJUST THIS: Increase the -15px to shift it more to the left */
-            transform: translateX(-20px); 
+            transform: translateX(-40px); /* Manual shift for visual centering */
             margin-bottom: 0;
         }
 
-        /* The Blue Line */
         .divider {
             height: 1px;
             width: 60px;
             background-color: var(--accent-cyan);
             margin: 15px auto;
-            opacity: 0.8;
         }
 
         h1 {
@@ -73,19 +64,16 @@
             font-weight: 300;
             letter-spacing: 4px; 
             text-transform: uppercase;
-            margin: 10px 0 0 0; /* Tight top, No bottom margin */
+            margin: 10px 0 0 0;
         }
 
         .subtitle {
             font-size: 1.1rem;
             color: var(--accent-cyan);
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin: 2px 0 50px 0; /* Extremely tight gap to h1 */
+            margin: 2px 0 50px 0;
             font-style: italic;
         }
 
-        /* Responsive Grid for Buttons */
         .button-group {
             display: grid;
             grid-template-columns: 1fr 1.4fr 1fr; 
@@ -112,12 +100,8 @@
             white-space: nowrap;
         }
 
-        .btn i {
-            margin-right: 12px;
-            font-size: 1.2rem;
-        }
+        .btn i { margin-right: 12px; font-size: 1.2rem; }
 
-        /* Primary Button Style */
         .btn-main {
             background-color: var(--primary-blue);
             font-size: 1.1rem;
@@ -125,68 +109,42 @@
             box-shadow: 0 4px 15px rgba(0, 34, 123, 0.3);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            background-color: rgba(255, 255, 255, 0.15);
-            border-color: var(--accent-cyan);
-        }
-
-        .btn-main:hover {
-            background-color: #0033bb;
-            box-shadow: 0 8px 25px rgba(0, 34, 123, 0.5);
-        }
+        .btn:hover { transform: translateY(-3px); background-color: rgba(255, 255, 255, 0.15); }
 
         footer {
             padding: 30px 0;
             font-size: 0.75rem;
             color: #444;
             text-align: center;
-            letter-spacing: 1px;
         }
 
-        /* Mobile View Fixes */
         @media (max-width: 850px) {
-            .button-group {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                max-width: 320px;
-            }
-            .btn-main { order: -1; } /* Main button moves to top on mobile */
-            .subtitle { margin-bottom: 30px; }
-            h1 { font-size: 1.2rem; }
+            .button-group { grid-template-columns: 1fr; gap: 15px; max-width: 320px; }
+            .btn-main { order: -1; }
+            .logo { transform: translateX(0); }
         }
     </style>
 </head>
 <body>
-
     <div class="main-content">
         <div class="container">
             <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
-            
             <div class="divider"></div>
-            
             <h1>Coming Soon</h1>
             <p class="subtitle">Get ready to let the magic begin...</p>
-
             <div class="button-group">
-                <a href="#" class="btn">
+                <a href="https://testflight.apple.com/join/pUev9aFE" class="btn">
                     <i class="fab fa-apple"></i> iOS Beta (TestFlight)
                 </a>
-                
-                <a href="#" class="btn btn-main">Request Access</a>
-                
-                <a href="#" class="btn">
+                <a href="mailto:contact@tabkha.com" class="btn btn-main">Request Access</a>
+                <a href="https://tabkha4android.blob.core.windows.net/tabkha4androidalpha/Tabkha%20(Android%20Alpha).apk" class="btn">
                     <i class="fab fa-android"></i> Android Alpha (Direct Download)
                 </a>
             </div>
         </div>
     </div>
-
     <footer>
         &copy; 2026 Tawwarly for Technical Consultancy
     </footer>
-
 </body>
 </html>
-
-
