@@ -6,7 +6,6 @@
     <title>Tabkha | Coming Soon</title>
     
     <link rel="icon" type="image/png" href="Favicon for the website.ico">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -21,136 +20,97 @@
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-white);
-            text-align: center;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            padding: 40px 20px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 900px; /* Increased to give buttons breathing room */
+            padding: 20px;
+            text-align: center;
             box-sizing: border-box;
         }
 
         .logo {
-            width: 70%;
-            max-width: 250px; 
+            width: 250px;
             height: auto;
-            margin-bottom: 30px;
-            animation: fadeIn 1.5s ease-out;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 1.8rem; 
-            font-weight: 300;
-            letter-spacing: 6px;
+            font-size: 1.8rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin: 10px 0;
         }
 
         p {
-            font-size: 1.1rem;
             color: var(--accent-cyan);
-            font-weight: 400;
-            margin-bottom: 60px;
-            letter-spacing: 1.5px;
             font-style: italic;
+            margin-bottom: 50px;
         }
 
-        /* Fixed Button Layout */
-        .button-group {
-            display: flex;
-            justify-content: center;
+        /* Fixed Button Grid */
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr; /* Middle is 1.5x wider */
+            gap: 15px;
             align-items: center;
-            gap: 20px;
-            flex-wrap: nowrap; /* Forces them into a row on desktop */
-            width: 100%;
+            margin-bottom: 60px; /* Space for footer */
         }
 
         .btn {
-            display: inline-flex;
+            height: 55px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
             text-decoration: none;
-            font-size: 0.9rem;
+            color: white;
+            border-radius: 10px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-white);
-            background: var(--glass-bg);
-            height: 55px;
+            font-size: 0.9rem;
+            transition: 0.3s;
             white-space: nowrap;
+            padding: 0 10px;
         }
 
-        .btn i {
-            margin-right: 12px;
-            font-size: 1.2rem;
-        }
+        .btn i { margin-right: 10px; font-size: 1.1rem; }
 
-        /* Middle Main Button - The Widest */
-        .btn-main {
-            flex: 2; /* Takes up more space */
-            max-width: 350px;
-            background-color: var(--primary-blue);
-            border: none;
-            font-size: 1.1rem;
-            order: 2;
-        }
-
-        /* Side Buttons */
         .btn-side {
-            flex: 1; /* Smashed smaller than the middle */
-            max-width: 240px;
+            background: var(--glass-bg);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .btn-side:first-child { order: 1; }
-        .btn-side:last-child { order: 3; }
-
-        /* Hover Effects */
-        .btn:hover {
-            transform: translateY(-3px);
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: var(--accent-cyan);
+        .btn-main {
+            background-color: var(--primary-blue);
+            font-size: 1.1rem;
         }
 
-        .btn-main:hover {
-            background-color: #0033bb;
-            box-shadow: 0 8px 25px rgba(0, 34, 123, 0.5);
-        }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-main:hover { background-color: #0033bb; box-shadow: 0 5px 15px rgba(0,34,123,0.4); }
 
         footer {
-            margin-top: 60px;
+            position: absolute;
+            bottom: 30px;
             font-size: 0.8rem;
             color: #666;
-            letter-spacing: 1px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Mobile Fix: Stack them properly */
-        @media (max-width: 800px) {
-            .button-group {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .btn {
+        /* Mobile View */
+        @media (max-width: 700px) {
+            .button-grid {
+                grid-template-columns: 1fr;
                 width: 100%;
                 max-width: 320px;
+                margin: 0 auto 60px auto;
             }
-            .btn-main {
-                order: -1; /* Request Access stays on top on mobile */
-            }
+            .btn-main { order: -1; } /* Request Access on top */
         }
     </style>
 </head>
@@ -162,9 +122,9 @@
         <h1>Coming Soon</h1>
         <p>Get ready to let the magic begin...</p>
 
-        <div class="button-group">
+        <div class="button-grid">
             <a href="#" class="btn btn-side">
-                <i class="fab fa-apple"></i> iOS Beta
+                <i class="fab fa-apple"></i> iOS Beta (TestFlight)
             </a>
             
             <a href="#" class="btn btn-main">Request Access</a>
@@ -173,11 +133,11 @@
                 <i class="fab fa-android"></i> Android Alpha
             </a>
         </div>
-
-        <footer>
-            &copy; 2026 Tawwarly for Technical Consultancy
-        </footer>
     </div>
+
+    <footer>
+        &copy; 2026 Tawwarly for Technical Consultancy
+    </footer>
 
 </body>
 </html>
