@@ -26,7 +26,7 @@
             color: var(--text-white);
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Keeps everything above the fold */
+            overflow: hidden; 
         }
 
         .main-content {
@@ -58,8 +58,8 @@
         }
 
         @keyframes logoZoom {
-            0% { opacity: 0; transform: translateX(-20px) scale(0); }
-            100% { opacity: 1; transform: translateX(-20px) scale(1); }
+            0% { opacity: 0; transform: translateX(-18px) scale(0); }
+            100% { opacity: 1; transform: translateX(-18px) scale(1); }
         }
 
         /* 2. DIVIDER ANIMATION */
@@ -118,14 +118,14 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            border-radius: 50px; /* Pill Shape */
+            border-radius: 50px; 
             text-decoration: none;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-white);
             background: var(--glass-bg);
             height: 50px;
-            padding: 0 20px;
+            padding: 0 25px;
             white-space: nowrap;
             animation: fadeInUp 0.8s ease-out forwards;
         }
@@ -139,27 +139,57 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Text Stacking for Two-Line Labels */
+        /* Label Centering Logic */
         .btn-text-wrapper {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
+            align-items: center;
+            text-align: center;
+            line-height: 1.1;
         }
 
-        .btn-label-top { font-size: 0.8rem; font-weight: 700; }
-        .btn-label-bottom { font-size: 0.6rem; opacity: 0.7; font-weight: 400; }
+        .btn-label-top { font-size: 0.8rem; font-weight: 700; display: block; }
+        .btn-label-bottom { font-size: 0.6rem; opacity: 0.7; font-weight: 400; display: block; }
 
         .btn i { margin-right: 12px; font-size: 1.2rem; }
 
+        /* 4. BREATHING & LIGHTING (Main Button) */
         .btn-main {
             background-color: var(--primary-blue);
             border: none;
             box-shadow: 0 4px 15px rgba(0, 34, 123, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out forwards, 
+                       buttonPulse 4s infinite ease-in-out 4.2s; 
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 34, 123, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0, 160, 227, 0.5); background-color: #0033bb; }
+        }
+
+        .btn-main::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite;
+            animation-delay: 5s;
+        }
+
+        @keyframes shimmer {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
         }
 
         .btn:hover { 
-            transform: translateY(-3px); 
+            transform: translateY(-3px) scale(1.02); 
             background-color: rgba(255, 255, 255, 0.2); 
             border-color: var(--accent-cyan);
         }
@@ -175,7 +205,7 @@
             animation-delay: 4s;
         }
 
-        /* Mobile Adjustments */
+        /* Mobile View (Centered Animation) */
         @media (max-width: 850px) {
             .button-group { grid-template-columns: 1fr; gap: 10px; max-width: 280px; }
             .btn-main { order: -1; }
@@ -198,9 +228,7 @@
     <div class="main-content">
         <div class="container">
             <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
-            
             <div class="divider"></div>
-            
             <h1>Coming Soon</h1>
             <p class="subtitle">Get ready to let the magic begin...</p>
 
@@ -214,7 +242,9 @@
                 </a>
                 
                 <a href="Request.html" class="btn btn-main">
-                    <span class="btn-label-top" style="font-size: 1rem;">Request Access</span>
+                    <div class="btn-text-wrapper">
+                        <span class="btn-label-top" style="font-size: 1rem;">Join Tabkhaweya</span>
+                    </div>
                 </a>
                 
                 <a href="https://tabkha4android.blob.core.windows.net/tabkha4androidalpha/Tabkha%20(Android%20Alpha).apk" class="btn btn-android">
