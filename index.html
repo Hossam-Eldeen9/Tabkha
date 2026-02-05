@@ -20,97 +20,139 @@
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-white);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            text-align: center;
+            overflow: hidden;
         }
 
         .container {
-            width: 100%;
-            max-width: 900px; /* Increased to give buttons breathing room */
             padding: 20px;
-            text-align: center;
+            width: 100%;
+            max-width: 1100px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .logo {
-            width: 250px;
+            width: 70%;
+            max-width: 280px; 
             height: auto;
-            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* The Cyan Divider Line */
+        .divider {
+            height: 1px;
+            width: 60px;
+            background-color: var(--accent-cyan);
+            margin: 20px auto;
+            opacity: 0.8;
         }
 
         h1 {
-            font-size: 1.8rem;
-            letter-spacing: 5px;
+            font-size: 1.4rem; 
+            font-weight: 300;
+            letter-spacing: 4px; 
             text-transform: uppercase;
-            margin: 10px 0;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
 
         p {
+            font-size: 1.1rem;
             color: var(--accent-cyan);
-            font-style: italic;
+            font-weight: 400;
             margin-bottom: 50px;
+            letter-spacing: 1px;
         }
 
-        /* Fixed Button Grid */
-        .button-grid {
+        /* Button Grid System */
+        .button-group {
             display: grid;
-            grid-template-columns: 1fr 1.5fr 1fr; /* Middle is 1.5x wider */
-            gap: 15px;
+            grid-template-columns: 1fr 1.4fr 1fr; 
+            gap: 20px;
+            width: 100%;
+            max-width: 950px;
             align-items: center;
-            margin-bottom: 60px; /* Space for footer */
         }
 
         .btn {
-            height: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 12px;
             text-decoration: none;
-            color: white;
-            border-radius: 10px;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            white-space: nowrap;
-            padding: 0 10px;
-        }
-
-        .btn i { margin-right: 10px; font-size: 1.1rem; }
-
-        .btn-side {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-white);
             background: var(--glass-bg);
-            border: 1px solid rgba(255,255,255,0.1);
+            height: 60px;
+            padding: 0 15px;
+            white-space: nowrap;
         }
 
+        .btn i {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Widest Center Button */
         .btn-main {
             background-color: var(--primary-blue);
             font-size: 1.1rem;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 34, 123, 0.3);
         }
 
-        .btn:hover { transform: translateY(-3px); }
-        .btn-main:hover { background-color: #0033bb; box-shadow: 0 5px 15px rgba(0,34,123,0.4); }
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-main:hover {
+            background-color: #0033bb;
+            box-shadow: 0 8px 25px rgba(0, 34, 123, 0.5);
+        }
 
         footer {
             position: absolute;
             bottom: 30px;
+            width: 100%;
             font-size: 0.8rem;
-            color: #666;
+            color: #555;
+            letter-spacing: 1px;
         }
 
-        /* Mobile View */
-        @media (max-width: 700px) {
-            .button-grid {
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 850px) {
+            .button-group {
                 grid-template-columns: 1fr;
-                width: 100%;
+                gap: 15px;
                 max-width: 320px;
-                margin: 0 auto 60px auto;
             }
-            .btn-main { order: -1; } /* Request Access on top */
+            .btn-main { order: -1; }
+            body { overflow-y: auto; }
+            footer {
+                position: relative;
+                margin-top: 50px;
+                padding-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -119,18 +161,20 @@
     <div class="container">
         <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
         
+        <div class="divider"></div>
+        
         <h1>Coming Soon</h1>
         <p>Get ready to let the magic begin...</p>
 
-        <div class="button-grid">
-            <a href="#" class="btn btn-side">
+        <div class="button-group">
+            <a href="#" class="btn">
                 <i class="fab fa-apple"></i> iOS Beta (TestFlight)
             </a>
             
             <a href="#" class="btn btn-main">Request Access</a>
             
-            <a href="#" class="btn btn-side">
-                <i class="fab fa-android"></i> Android Alpha
+            <a href="#" class="btn">
+                <i class="fab fa-android"></i> Android Alpha (Direct Download)
             </a>
         </div>
     </div>
