@@ -23,21 +23,20 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--pure-black); /* Set to Pure Black */
+            background-color: var(--pure-black);
             color: var(--text-white);
             text-align: center;
-            overflow: hidden;
         }
 
         .container {
             padding: 20px;
-            width: 100%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 800px;
         }
 
         .logo {
-            width: 78%;
-            max-width: 280px; 
+            width: 70%;
+            max-width: 250px; 
             height: auto;
             margin-bottom: 25px;
             animation: fadeIn 1.5s ease-out;
@@ -48,7 +47,6 @@
             font-weight: 300;
             letter-spacing: 5px;
             text-transform: uppercase;
-            margin-top: 20px;
             margin-bottom: 8px;
         }
 
@@ -61,11 +59,55 @@
             font-style: italic;
         }
 
-        .divider {
-            height: 2px;
-            width: 40px;
+        /* Button Layout */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            background: var(--glass-bg);
+            cursor: pointer;
+        }
+
+        /* Middle Main Button */
+        .btn-main {
+            padding: 16px 40px;
             background-color: var(--primary-orange);
-            margin: 0 auto;
+            color: var(--pure-black);
+            font-size: 1rem;
+            order: 2; /* Keeps it in the middle */
+            border: none;
+        }
+
+        .btn-side {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .btn-side:first-child { order: 1; }
+        .btn-side:last-child { order: 3; }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-main:hover {
+            background-color: #ff8557;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
         }
 
         footer {
@@ -74,7 +116,6 @@
             width: 100%;
             font-size: 0.8rem;
             color: var(--text-muted);
-            letter-spacing: 1px;
         }
 
         @keyframes fadeIn {
@@ -82,9 +123,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 1.3rem; }
-            .logo { width: 65%; }
+        @media (max-width: 600px) {
+            .button-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; order: unset !important; }
         }
     </style>
 </head>
@@ -93,10 +134,16 @@
     <div class="container">
         <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
         
-        <div class="divider"></div>
-        
         <h1>Coming Soon</h1>
-        <p>Get Ready to let the Magic begin....</p>
+        <p>Get ready to let the magic begin...</p>
+
+        <div class="button-group">
+            <a href="#" class="btn btn-side">iOS Beta (TestFlight)</a>
+            
+            <a href="#" class="btn btn-main">Request Access</a>
+            
+            <a href="#" class="btn btn-side">Android Alpha (Direct Download)</a>
+        </div>
     </div>
 
     <footer>
@@ -105,4 +152,3 @@
 
 </body>
 </html>
-
