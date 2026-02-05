@@ -52,10 +52,51 @@
             width: 60%; /* Slightly smaller logo */
             max-width: 240px; 
             height: auto;
-            transform: translateX(-25px); 
+            transform: translateX(-22px); 
             margin-bottom: -5px; /* Pulls divider closer */
         }
 
+        /* Animated Logo Logic */
+.logo {
+    width: 60%;
+    max-width: 240px; 
+    height: auto;
+    margin-bottom: -5px;
+    /* 3 second duration, smooth ease-out, stays at final size */
+    animation: logoZoom 3s ease-out forwards;
+}
+
+/* Keyframes for Desktop (Includes the -40px shift) */
+@keyframes logoZoom {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px) scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-40px) scale(1);
+    }
+}
+
+/* Keyframes for Mobile (Centered) */
+@media (max-width: 850px) {
+    .logo {
+        transform: translateX(0);
+        animation: logoZoomMobile 3s ease-out forwards;
+    }
+
+    @keyframes logoZoomMobile {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+        
         .divider {
             height: 1px;
             width: 50px;
@@ -158,4 +199,5 @@
     </footer>
 </body>
 </html>
+
 
