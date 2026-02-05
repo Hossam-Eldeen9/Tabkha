@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="Tabkha's Favicon.ico">
-    
-    </head>
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabkha | Coming Soon</title>
+    
+    <link rel="icon" type="image/png" href="Tabkha's Logo for the website.png">
+    
     <style>
         :root {
-            --primary-blue: #00227b; 
-            --accent-cyan: #00a0e3;   
-            --bg-color: #050505; 
+            --primary-orange: #ff6b35; 
+            --pure-black: #000000;
             --text-white: #ffffff;
+            --text-muted: #555555;
         }
 
         body, html {
             height: 100%;
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--bg-color);
+            background-color: var(--pure-black); /* Set to Pure Black */
             color: var(--text-white);
             text-align: center;
+            overflow: hidden;
         }
 
         .container {
@@ -34,39 +34,38 @@
             width: 100%;
             max-width: 600px;
         }
-        
-.logo {
-            width: 100%; 
-            max-width: 300px; 
+
+        .logo {
+            width: 78%;
+            max-width: 280px; 
             height: auto;
-            margin-bottom: 20px;
-            transform: translateX(-15px); /* This moves it exactly 20px to the left */
-            animation: fadeIn 3s ease-in;
+            margin-bottom: 25px;
+            animation: fadeIn 1.5s ease-out;
         }
-    
+
         h1 {
-            font-size: 1.4rem; 
+            font-size: 1.6rem; 
             font-weight: 300;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             margin-top: 20px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         p {
-            font-size: 1rem;
-            color: var(--accent-cyan);
+            font-size: 1.1rem;
+            color: var(--primary-orange);
             font-weight: 400;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
+            margin-bottom: 40px;
+            letter-spacing: 1.5px;
+            font-style: italic;
         }
 
         .divider {
-            height: 1px;
-            width: 60px;
-            background-color: var(--accent-cyan);
+            height: 2px;
+            width: 40px;
+            background-color: var(--primary-orange);
             margin: 0 auto;
-            opacity: 0.5;
         }
 
         footer {
@@ -74,18 +73,18 @@
             bottom: 30px;
             width: 100%;
             font-size: 0.8rem;
-            color: #fffff5;
-            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 1.1rem; }
-            .logo { width: 60%; }
+            h1 { font-size: 1.3rem; }
+            .logo { width: 65%; }
         }
     </style>
 </head>
@@ -97,21 +96,12 @@
         <div class="divider"></div>
         
         <h1>Coming Soon</h1>
-        <p>Get ready to let the Magic begin!</p>
+        <p>The perfect recipe is brewing...</p>
     </div>
 
     <footer>
-        All rights reserved to Tawwarly for Technical Consultancy&copy; 2026
+        &copy; 2026 Tabkha. All culinary rights reserved.
     </footer>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
