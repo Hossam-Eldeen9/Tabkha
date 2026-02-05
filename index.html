@@ -7,12 +7,15 @@
     
     <link rel="icon" type="image/png" href="Favicon for the website.ico">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --primary-blue: #00227b; 
             --accent-cyan: #00a0e3;   
             --bg-color: #000000; 
             --text-white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
         }
 
         body, html {
@@ -23,7 +26,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--pure-black);
+            background-color: var(--bg-color);
             color: var(--text-white);
             text-align: center;
         }
@@ -31,7 +34,7 @@
         .container {
             padding: 20px;
             width: 90%;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .logo {
@@ -52,9 +55,9 @@
 
         p {
             font-size: 1.1rem;
-            color: var(--primary-orange);
+            color: var(--accent-cyan); /* Using your Cyan color */
             font-weight: 400;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             letter-spacing: 1.5px;
             font-style: italic;
         }
@@ -66,12 +69,13 @@
             align-items: center;
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 20px;
         }
 
         .btn {
-            padding: 12px 20px;
-            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -82,32 +86,40 @@
             cursor: pointer;
         }
 
-        /* Middle Main Button */
-        .btn-main {
-            padding: 16px 40px;
-            background-color: var(--primary-orange);
-            color: var(--pure-black);
-            font-size: 1rem;
-            order: 2; /* Keeps it in the middle */
-            border: none;
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
 
+        /* Middle Main Button - Widest */
+        .btn-main {
+            padding: 16px 50px;
+            background-color: var(--primary-blue); /* Using your Blue color */
+            border: none;
+            font-size: 1rem;
+            min-width: 280px;
+            order: 2;
+        }
+
+        /* Side Buttons */
         .btn-side {
+            padding: 12px 20px;
+            min-width: 200px;
             flex: 1;
-            min-width: 180px;
         }
 
         .btn-side:first-child { order: 1; }
         .btn-side:last-child { order: 3; }
 
+        /* Hover Effects */
         .btn:hover {
             transform: translateY(-3px);
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .btn-main:hover {
-            background-color: #ff8557;
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+            background-color: var(--accent-cyan);
+            box-shadow: 0 5px 20px rgba(0, 160, 227, 0.4);
         }
 
         footer {
@@ -115,7 +127,7 @@
             bottom: 30px;
             width: 100%;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: #666;
         }
 
         @keyframes fadeIn {
@@ -123,9 +135,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .button-group { flex-direction: column; width: 100%; }
-            .btn { width: 100%; order: unset !important; }
+            .btn { width: 100%; max-width: 300px; order: unset !important; }
+            .btn-main { order: -1 !important; } /* Request Access first on mobile */
         }
     </style>
 </head>
@@ -138,11 +151,15 @@
         <p>Get ready to let the magic begin...</p>
 
         <div class="button-group">
-            <a href="#" class="btn btn-side">iOS Beta (TestFlight)</a>
+            <a href="#" class="btn btn-side">
+                <i class="fab fa-apple"></i> iOS Beta (TestFlight)
+            </a>
             
             <a href="#" class="btn btn-main">Request Access</a>
             
-            <a href="#" class="btn btn-side">Android Alpha (Direct Download)</a>
+            <a href="#" class="btn btn-side">
+                <i class="fab fa-android"></i> Android Alpha
+            </a>
         </div>
     </div>
 
