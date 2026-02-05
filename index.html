@@ -17,25 +17,33 @@
             --glass-bg: rgba(255, 255, 255, 0.1);
         }
 
+        /* The 'Full Height' fix to prevent button/footer overlap */
         body, html {
             height: 100%;
             margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* This pushes the footer to the bottom */
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--bg-color);
-            color: var(--text-white);
-            text-align: center;
-            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .container {
-            padding: 20px;
             width: 100%;
             max-width: 1100px;
-            box-sizing: border-box;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -45,15 +53,15 @@
             width: 70%;
             max-width: 280px; 
             height: auto;
-            animation: fadeIn 1.5s ease-out;
+            margin-bottom: 0;
         }
 
-        /* The Cyan Divider Line */
+        /* The Blue Line */
         .divider {
             height: 1px;
             width: 60px;
             background-color: var(--accent-cyan);
-            margin: 20px auto;
+            margin: 15px auto;
             opacity: 0.8;
         }
 
@@ -62,19 +70,19 @@
             font-weight: 300;
             letter-spacing: 4px; 
             text-transform: uppercase;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            margin: 10px 0 0 0; /* Tight top, No bottom margin */
         }
 
-        p {
+        .subtitle {
             font-size: 1.1rem;
             color: var(--accent-cyan);
             font-weight: 400;
-            margin-bottom: 50px;
             letter-spacing: 1px;
+            margin: 2px 0 50px 0; /* Extremely tight gap to h1 */
+            font-style: italic;
         }
 
-        /* Button Grid System */
+        /* Responsive Grid for Buttons */
         .button-group {
             display: grid;
             grid-template-columns: 1fr 1.4fr 1fr; 
@@ -106,7 +114,7 @@
             font-size: 1.2rem;
         }
 
-        /* Widest Center Button */
+        /* Primary Button Style */
         .btn-main {
             background-color: var(--primary-blue);
             font-size: 1.1rem;
@@ -126,56 +134,48 @@
         }
 
         footer {
-            position: absolute;
-            bottom: 30px;
-            width: 100%;
-            font-size: 0.8rem;
-            color: #555;
+            padding: 30px 0;
+            font-size: 0.75rem;
+            color: #444;
+            text-align: center;
             letter-spacing: 1px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Mobile Adjustments */
+        /* Mobile View Fixes */
         @media (max-width: 850px) {
             .button-group {
                 grid-template-columns: 1fr;
                 gap: 15px;
                 max-width: 320px;
             }
-            .btn-main { order: -1; }
-            body { overflow-y: auto; }
-            footer {
-                position: relative;
-                margin-top: 50px;
-                padding-bottom: 20px;
-            }
+            .btn-main { order: -1; } /* Main button moves to top on mobile */
+            .subtitle { margin-bottom: 30px; }
+            h1 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
-        
-        <div class="divider"></div>
-        
-        <h1>Coming Soon</h1>
-        <p>Get ready to let the magic begin...</p>
+    <div class="main-content">
+        <div class="container">
+            <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
+            
+            <div class="divider"></div>
+            
+            <h1>Coming Soon</h1>
+            <p class="subtitle">Get ready to let the magic begin...</p>
 
-        <div class="button-group">
-            <a href="#" class="btn">
-                <i class="fab fa-apple"></i> iOS Beta (TestFlight)
-            </a>
-            
-            <a href="#" class="btn btn-main">Request Access</a>
-            
-            <a href="#" class="btn">
-                <i class="fab fa-android"></i> Android Alpha (Direct Download)
-            </a>
+            <div class="button-group">
+                <a href="#" class="btn">
+                    <i class="fab fa-apple"></i> iOS Beta (TestFlight)
+                </a>
+                
+                <a href="#" class="btn btn-main">Request Access</a>
+                
+                <a href="#" class="btn">
+                    <i class="fab fa-android"></i> Android Alpha (Direct Download)
+                </a>
+            </div>
         </div>
     </div>
 
