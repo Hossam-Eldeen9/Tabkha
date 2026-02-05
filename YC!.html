@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabkha | Coming Soon</title>
     
-    <link rel="icon" type="image/png" href="Tabkha's Logo for the website.png">
+    <link rel="icon" type="image/png" href="Favicon for the website.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-orange: #ff6b35; 
-            --pure-black: #000000;
+            --primary-blue: #00227b; 
+            --accent-cyan: #00a0e3;   
+            --bg-color: #000000; 
             --text-white: #ffffff;
-            --text-muted: #555555;
+            --glass-bg: rgba(255, 255, 255, 0.1);
         }
 
         body, html {
@@ -23,7 +25,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: var(--pure-black); /* Set to Pure Black */
+            background-color: var(--bg-color);
             color: var(--text-white);
             text-align: center;
             overflow: hidden;
@@ -32,48 +34,103 @@
         .container {
             padding: 20px;
             width: 100%;
-            max-width: 600px;
+            max-width: 1100px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .logo {
-            width: 78%;
+            width: 70%;
             max-width: 280px; 
             height: auto;
-            margin-bottom: 25px;
             animation: fadeIn 1.5s ease-out;
         }
 
+        /* The Cyan Divider Line */
+        .divider {
+            height: 1px;
+            width: 60px;
+            background-color: var(--accent-cyan);
+            margin: 20px auto;
+            opacity: 0.8;
+        }
+
         h1 {
-            font-size: 1.6rem; 
+            font-size: 1.4rem; 
             font-weight: 300;
-            letter-spacing: 5px;
+            letter-spacing: 4px; 
             text-transform: uppercase;
-            margin-top: 20px;
-            margin-bottom: 8px;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
 
         p {
             font-size: 1.1rem;
-            color: var(--primary-orange);
+            color: var(--accent-cyan);
             font-weight: 400;
-            margin-bottom: 40px;
-            letter-spacing: 1.5px;
-            font-style: italic;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
         }
 
-        .divider {
-            height: 2px;
-            width: 40px;
-            background-color: var(--primary-orange);
-            margin: 0 auto;
+        /* Button Grid System */
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr 1fr; 
+            gap: 20px;
+            width: 100%;
+            max-width: 950px;
+            align-items: center;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-white);
+            background: var(--glass-bg);
+            height: 60px;
+            padding: 0 15px;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Widest Center Button */
+        .btn-main {
+            background-color: var(--primary-blue);
+            font-size: 1.1rem;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 34, 123, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-main:hover {
+            background-color: #0033bb;
+            box-shadow: 0 8px 25px rgba(0, 34, 123, 0.5);
         }
 
         footer {
-            position: fixed;
+            position: absolute;
             bottom: 30px;
             width: 100%;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: #555;
             letter-spacing: 1px;
         }
 
@@ -82,25 +139,48 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 1.3rem; }
-            .logo { width: 65%; }
+        /* Mobile Adjustments */
+        @media (max-width: 850px) {
+            .button-group {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                max-width: 320px;
+            }
+            .btn-main { order: -1; }
+            body { overflow-y: auto; }
+            footer {
+                position: relative;
+                margin-top: 50px;
+                padding-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="Tabkha Logo.png" alt="Tabkha Logo" class="logo">
+        <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
         
         <div class="divider"></div>
         
         <h1>Coming Soon</h1>
-        <p>The perfect recipe is brewing...</p>
+        <p>Get ready to let the magic begin...</p>
+
+        <div class="button-group">
+            <a href="#" class="btn">
+                <i class="fab fa-apple"></i> iOS Beta (TestFlight)
+            </a>
+            
+            <a href="#" class="btn btn-main">Request Access</a>
+            
+            <a href="#" class="btn">
+                <i class="fab fa-android"></i> Android Alpha (Direct Download)
+            </a>
+        </div>
     </div>
 
     <footer>
-        &copy; 2026 Tabkha. All culinary rights reserved.
+        &copy; 2026 Tawwarly for Technical Consultancy
     </footer>
 
 </body>
