@@ -38,7 +38,16 @@
         .main-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; }
         .container { width: 100%; max-width: 900px; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .logo { width: 60%; max-width: 240px; animation: logoZoom 3s ease-out forwards; }
-        @keyframes logoZoom { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
+        @keyframes logoZoom {
+            0% { opacity: 0; transform: translateX(-19px) scale(0); }
+            100% { opacity: 1; transform: translateX(-19px) scale(1); }
+        }
+
+        /* نسخة الموبايل - ضيفنا إزاحة للشمال بمقدار 25 بيكسل */
+        @keyframes logoZoomMobile {
+            0% { opacity: 0; transform: translateX(-19px) scale(0); }
+            100% { opacity: 1; transform: translateX(-19px) scale(1); }
+        }
         .divider { height: 1px; width: 0; background-color: var(--accent-cyan); margin: 10px auto; animation: expandDivider 1s ease-out forwards 2.5s; }
         @keyframes expandDivider { to { width: 50px; } }
         h1, .subtitle { opacity: 0; animation: fadeIn 1s ease-out forwards 3s; }
@@ -167,3 +176,4 @@
     </script>
 </body>
 </html>
+
