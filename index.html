@@ -45,20 +45,29 @@
         h1 { font-size: 1.2rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin: 5px 0; }
         .subtitle { font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 25px; font-style: italic; }
         @keyframes fadeIn { to { opacity: 1; } }
+        
         .button-group { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 12px; width: 100%; max-width: 800px; }
         .btn {
             opacity: 0; display: flex; align-items: center; justify-content: center;
             border-radius: 50px; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-white); background: var(--glass-bg); height: 50px; padding: 0 25px;
+            color: var(--text-white); background: var(--glass-bg); height: 60px; padding: 0 25px;
             animation: fadeInUp 0.8s ease-out forwards;
         }
         .btn-ios { animation-delay: 3.2s; } .btn-main { animation-delay: 3.4s; } .btn-android { animation-delay: 3.6s; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .btn-text-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2; }
+        .btn-label-top { font-size: 0.85rem; font-weight: 700; display: block; }
+        .btn-label-bottom { font-size: 0.65rem; opacity: 0.7; font-weight: 400; display: block; }
+
         .btn-main { background-color: var(--primary-blue); border: none; animation: fadeInUp 0.8s forwards, buttonPulse 4s infinite 4.2s; }
         @keyframes buttonPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        
         [dir="rtl"] .btn i { margin-left: 12px; } [dir="ltr"] .btn i { margin-right: 12px; }
+        .btn i { font-size: 1.2rem; }
+
         footer { padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; }
-        @media (max-width: 850px) { .button-group { grid-template-columns: 1fr; max-width: 280px; } .btn-main { order: -1; } }
+        @media (max-width: 850px) { .button-group { grid-template-columns: 1fr; max-width: 280px; } .btn-main { order: -1; } .btn { height: 55px; } }
     </style>
 </head>
 <body id="body-tag" dir="ltr">
@@ -72,14 +81,22 @@
             <div class="button-group">
                 <a href="https://testflight.apple.com/join/pUev9aFE" class="btn btn-ios" onclick="gtag('event', 'click_ios_beta');">
                     <i class="fab fa-apple"></i>
-                    <div class="btn-text-wrapper"><span class="btn-label-top" id="txt-ios-top">iOS Beta</span><span class="btn-label-bottom" id="txt-ios-bottom">(TestFlight)</span></div>
+                    <div class="btn-text-wrapper">
+                        <span class="btn-label-top" id="txt-ios-top">iOS Beta</span>
+                        <span class="btn-label-bottom" id="txt-ios-bottom">(TestFlight)</span>
+                    </div>
                 </a>
                 <a href="Request.html" class="btn btn-main" onclick="gtag('event', 'click_join_request');">
-                    <div class="btn-text-wrapper"><span class="btn-label-top" id="txt-main-btn" style="font-size: 1rem;">Join the Tabkhaweya</span></div>
+                    <div class="btn-text-wrapper">
+                        <span class="btn-label-top" id="txt-main-btn" style="font-size: 1rem;">Join the Tabkhaweya</span>
+                    </div>
                 </a>
                 <a href="https://tabkha4android.blob.core.windows.net/tabkha4androidalpha/Tabkha%20(Android%20Alpha).apk" class="btn btn-android" onclick="gtag('event', 'click_android_alpha');">
                     <i class="fab fa-android"></i>
-                    <div class="btn-text-wrapper"><span class="btn-label-top" id="txt-android-top">Android Alpha</span><span class="btn-label-bottom" id="txt-android-bottom">(Direct Download)</span></div>
+                    <div class="btn-text-wrapper">
+                        <span class="btn-label-top" id="txt-android-top">Android Alpha</span>
+                        <span class="btn-label-bottom" id="txt-android-bottom">(Direct Download)</span>
+                    </div>
                 </a>
             </div>
         </div>
@@ -98,10 +115,10 @@
             };
             if (lang === 'ar') {
                 body.dir = 'rtl'; body.style.fontFamily = "'Cairo', sans-serif"; btn.innerText = 'English';
-                elements.title.innerText = 'قريباً جداً'; elements.subtitle.innerText = 'استعدوا.. السحر على وشك البدء';
-                elements.iosTop.innerText = 'نسخة iOS'; elements.iosBottom.innerText = '(تست فلايت)';
+                elements.title.innerText = 'قريباً جداً'; elements.subtitle.innerText = 'استعدوا.. السحر على وشك أن يبدأ';
+                elements.iosTop.innerText = 'نسخة iOS'; elements.iosBottom.innerText = '(TestFlight)';
                 elements.mainBtn.innerText = 'انضم للطبخاوية'; elements.androidTop.innerText = 'نسخة أندرويد';
-                elements.androidBottom.innerText = '(تحميل مباشر)'; elements.footer.innerHTML = '&copy; ٢٠٢٦ طورلي للاستشارات التقنية';
+                elements.androidBottom.innerText = '(تحميل مباشر)'; elements.footer.innerHTML = '&copy; 2026 طوَرلي للاستشارات التقنية';
             } else {
                 body.dir = 'ltr'; body.style.fontFamily = "'Segoe UI', sans-serif"; btn.innerText = 'العربية';
                 elements.title.innerText = 'Coming Soon'; elements.subtitle.innerText = 'Get ready to let the magic begin...';
