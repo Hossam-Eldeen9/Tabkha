@@ -60,8 +60,38 @@
         .btn-label-top { font-size: 0.85rem; font-weight: 700; display: block; }
         .btn-label-bottom { font-size: 0.65rem; opacity: 0.7; font-weight: 400; display: block; }
 
-        .btn-main { background-color: var(--primary-blue); border: none; animation: fadeInUp 0.8s forwards, buttonPulse 4s infinite 4.2s; }
-        @keyframes buttonPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        /* تأثير اللمعة والنبض للزرار الرئيسي */
+        .btn-main { 
+            background-color: var(--primary-blue); 
+            border: none; 
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s forwards, buttonPulse 4s infinite 4.2s; 
+        }
+
+        .btn-main::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            animation: shiningEffect 3s infinite;
+            animation-delay: 5s;
+        }
+
+        @keyframes shiningEffect {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); background-color: #0033bb; }
+        }
         
         [dir="rtl"] .btn i { margin-left: 12px; } [dir="ltr"] .btn i { margin-right: 12px; }
         .btn i { font-size: 1.2rem; }
@@ -115,7 +145,7 @@
             };
             if (lang === 'ar') {
                 body.dir = 'rtl'; body.style.fontFamily = "'Cairo', sans-serif"; btn.innerText = 'English';
-                elements.title.innerText = 'قريباً جداً'; elements.subtitle.innerText = 'استعدوا.. السحر على وشك أن يبدأ';
+                elements.title.innerText = 'قريباً جداً'; elements.subtitle.innerText = 'السحر على وشك أن يبدأ.....';
                 elements.iosTop.innerText = 'نسخة iOS'; elements.iosBottom.innerText = '(TestFlight)';
                 elements.mainBtn.innerText = 'انضم للطبخاوية'; elements.androidTop.innerText = 'نسخة أندرويد';
                 elements.androidBottom.innerText = '(تحميل مباشر)'; elements.footer.innerHTML = '&copy; 2026 طوَرلي للاستشارات التقنية';
