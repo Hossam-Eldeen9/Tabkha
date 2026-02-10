@@ -7,6 +7,7 @@
     
     <link rel="icon" type="image/png" href="Tabkha Favicon2.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -27,6 +28,32 @@
             display: flex;
             flex-direction: column;
             overflow: hidden; 
+            transition: all 0.3s ease;
+        }
+
+        /* تنسيق زرار اللغة */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .lang-btn {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
         }
 
         .main-content {
@@ -48,7 +75,6 @@
             align-items: center;
         }
 
-        /* 1. LOGO ANIMATION (3s Zoom) */
         .logo {
             width: 60%;
             max-width: 240px; 
@@ -62,7 +88,6 @@
             100% { opacity: 1; transform: translateX(-21px) scale(1); }
         }
 
-        /* 2. DIVIDER ANIMATION */
         .divider {
             height: 1px;
             width: 0;
@@ -102,7 +127,6 @@
             to { opacity: 1; }
         }
 
-        /* 3. BUTTON GROUP & STAGGERED ENTRANCE */
         .button-group {
             display: grid;
             grid-template-columns: 1fr 1.2fr 1fr;
@@ -139,7 +163,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Label Centering Logic */
         .btn-text-wrapper {
             display: flex;
             flex-direction: column;
@@ -151,9 +174,12 @@
         .btn-label-top { font-size: 0.8rem; font-weight: 700; display: block; }
         .btn-label-bottom { font-size: 0.6rem; opacity: 0.7; font-weight: 400; display: block; }
 
-        .btn i { margin-right: 12px; font-size: 1.2rem; }
+        /* تعديل المسافة للأيقونة عشان العربي */
+        [dir="rtl"] .btn i { margin-left: 12px; margin-right: 0; }
+        [dir="ltr"] .btn i { margin-right: 12px; margin-left: 0; }
+        
+        .btn i { font-size: 1.2rem; }
 
-        /* 4. BREATHING & LIGHTING (Main Button) */
         .btn-main {
             background-color: var(--primary-blue);
             border: none;
@@ -205,7 +231,6 @@
             animation-delay: 4s;
         }
 
-        /* Mobile View (Centered Animation) */
         @media (max-width: 850px) {
             .button-group { grid-template-columns: 1fr; gap: 10px; max-width: 280px; }
             .btn-main { order: -1; }
@@ -220,50 +245,100 @@
             }
             .subtitle { margin-bottom: 20px; }
             body { overflow-y: auto; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
-<body>
+<body id="body-tag" dir="ltr">
+
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">العربية</button>
+    </div>
 
     <div class="main-content">
         <div class="container">
             <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
             <div class="divider"></div>
-            <h1>Coming Soon</h1>
-            <p class="subtitle">Get ready to let the magic begin...</p>
+            <h1 id="txt-title">Coming Soon</h1>
+            <p class="subtitle" id="txt-subtitle">Get ready to let the magic begin...</p>
 
             <div class="button-group">
                 <a href="https://testflight.apple.com/join/pUev9aFE" class="btn btn-ios">
                     <i class="fab fa-apple"></i>
                     <div class="btn-text-wrapper">
-                        <span class="btn-label-top">iOS Beta</span>
-                        <span class="btn-label-bottom">(TestFlight)</span>
+                        <span class="btn-label-top" id="txt-ios-top">iOS Beta</span>
+                        <span class="btn-label-bottom" id="txt-ios-bottom">(TestFlight)</span>
                     </div>
                 </a>
                 
                 <a href="Request.html" class="btn btn-main">
                     <div class="btn-text-wrapper">
-                        <span class="btn-label-top" style="font-size: 1rem;">Join the Tabkhaweya</span>
+                        <span class="btn-label-top" id="txt-main-btn" style="font-size: 1rem;">Join the Tabkhaweya</span>
                     </div>
                 </a>
                 
                 <a href="https://tabkha4android.blob.core.windows.net/tabkha4androidalpha/Tabkha%20(Android%20Alpha).apk" class="btn btn-android">
                     <i class="fab fa-android"></i>
                     <div class="btn-text-wrapper">
-                        <span class="btn-label-top">Android Alpha</span>
-                        <span class="btn-label-bottom">(Direct Download)</span>
+                        <span class="btn-label-top" id="txt-android-top">Android Alpha</span>
+                        <span class="btn-label-bottom" id="txt-android-bottom">(Direct Download)</span>
                     </div>
                 </a>
             </div>
         </div>
     </div>
 
-    <footer>
+    <footer id="txt-footer">
         &copy; 2026 Tawwarly for Technical Consultancy
     </footer>
 
+    <script>
+        function toggleLanguage() {
+            const body = document.getElementById('body-tag');
+            const btn = document.getElementById('lang-toggle-btn');
+            
+            // العناصر اللي هتتغير
+            const elements = {
+                title: document.getElementById('txt-title'),
+                subtitle: document.getElementById('txt-subtitle'),
+                iosTop: document.getElementById('txt-ios-top'),
+                iosBottom: document.getElementById('txt-ios-bottom'),
+                mainBtn: document.getElementById('txt-main-btn'),
+                androidTop: document.getElementById('txt-android-top'),
+                androidBottom: document.getElementById('txt-android-bottom'),
+                footer: document.getElementById('txt-footer')
+            };
+
+            if (body.dir === 'ltr') {
+                // قلب عربي
+                body.dir = 'rtl';
+                body.style.fontFamily = "'Cairo', sans-serif";
+                btn.innerText = 'English';
+                
+                elements.title.innerText = 'قريباً جداً';
+                elements.subtitle.innerText = 'استعدوا.. السحر على وشك البدء';
+                elements.iosTop.innerText = 'نسخة iOS';
+                elements.iosBottom.innerText = '(TestFlight)';
+                elements.mainBtn.innerText = 'انضم للطبخاوية';
+                elements.androidTop.innerText = 'نسخة أندرويد';
+                elements.androidBottom.innerText = '(تحميل مباشر)';
+                elements.footer.innerHTML = '&copy; 2026 Tawwarly for Technical Consultancy';
+            } else {
+                // قلب إنجليزي
+                body.dir = 'ltr';
+                body.style.fontFamily = "'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+                btn.innerText = 'العربية';
+                
+                elements.title.innerText = 'Coming Soon';
+                elements.subtitle.innerText = 'Get ready to let the magic begin...';
+                elements.iosTop.innerText = 'iOS Beta';
+                elements.iosBottom.innerText = '(TestFlight)';
+                elements.mainBtn.innerText = 'Join the Tabkhaweya';
+                elements.androidTop.innerText = 'Android Alpha';
+                elements.androidBottom.innerText = '(Direct Download)';
+                elements.footer.innerHTML = '&copy; 2026 Tawwarly for Technical Consultancy';
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-
