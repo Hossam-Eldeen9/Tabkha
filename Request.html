@@ -17,100 +17,40 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-white);
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
+            background-color: var(--bg-color); color: var(--text-white);
+            font-family: 'Segoe UI', sans-serif; display: flex;
+            justify-content: center; align-items: center; min-height: 100vh;
+            margin: 0; padding: 20px; box-sizing: border-box; transition: all 0.3s ease;
         }
 
-        /* تنسيق زرار اللغة */
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
+        .lang-switch { position: absolute; top: 20px; right: 20px; }
         .lang-btn {
-            background: var(--glass-bg);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-white);
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Cairo', sans-serif;
+            background: var(--glass-bg); border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-white); padding: 8px 15px; border-radius: 20px;
+            cursor: pointer; font-family: 'Cairo', sans-serif;
         }
 
         .form-container {
-            background: var(--glass-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
+            background: var(--glass-bg); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1); width: 100%; max-width: 500px; text-align: center;
         }
 
         h2 { color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
         p { font-size: 0.9rem; color: #888; margin-bottom: 30px; }
-
         .form-group { text-align: inherit; margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: #ccc; }
-
         input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background: #111;
-            color: white;
-            box-sizing: border-box;
-            font-size: 1rem;
-            font-family: inherit;
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333;
+            background: #111; color: white; box-sizing: border-box; font-size: 1rem; font-family: inherit;
         }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-        }
-
         .submit-btn {
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            transition: 0.3s;
-            font-family: inherit;
+            background: var(--primary-blue); color: white; border: none; padding: 15px 30px;
+            border-radius: 12px; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s;
         }
-
         .submit-btn:hover { background: #0033bb; transform: translateY(-2px); }
-
-        .back-link { 
-            display: inline-block; 
-            margin-top: 25px; 
-            color: #666; 
-            text-decoration: none; 
-            font-size: 0.85rem; 
-            transition: color 0.3s;
-        }
-
-        .back-link:hover { color: var(--accent-cyan); }
-
-        /* تعديلات الـ RTL */
+        .back-link { display: inline-block; margin-top: 25px; color: #666; text-decoration: none; font-size: 0.85rem; }
         [dir="rtl"] .form-group { text-align: right; }
-        [dir="rtl"] .back-link i { margin-left: 8px; margin-right: 0; transform: rotate(180deg); }
+        [dir="rtl"] .back-link i { margin-left: 8px; transform: rotate(180deg); }
     </style>
 </head>
 <body id="body-tag" dir="ltr">
@@ -122,29 +62,13 @@
     <div class="form-container">
         <h2 id="txt-title">Request Beta Access</h2>
         <p id="txt-subtitle">Fill in your details to join the testing team.</p>
-
         <form action="https://formspree.io/f/mnjbaowd" method="POST">
-            <div class="form-group">
-                <label id="lbl-name">Full Name</label>
-                <input type="text" name="name" id="in-name" placeholder="Hossam Mahmoud" required>
+            <div class="form-group"><label id="lbl-name">Full Name</label><input type="text" name="name" id="in-name" placeholder="Hossam Mahmoud" required></div>
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;"><label id="lbl-age">Age</label><input type="number" name="age" required></div>
+                <div class="form-group" style="flex: 2;"><label id="lbl-country">Country</label><input type="text" name="country" id="in-country" required></div>
             </div>
-
-            <div style="display: flex; gap: 15px;" id="flex-group">
-                <div class="form-group" style="flex: 1;">
-                    <label id="lbl-age">Age</label>
-                    <input type="number" name="age" required>
-                </div>
-                <div class="form-group" style="flex: 2;">
-                    <label id="lbl-country">Country</label>
-                    <input type="text" name="country" id="in-country" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label id="lbl-email">Email Address</label>
-                <input type="email" name="email" placeholder="info@tawwarly.com" required>
-            </div>
-
+            <div class="form-group"><label id="lbl-email">Email Address</label><input type="email" name="email" placeholder="info@tawwarly.com" required></div>
             <div class="form-group">
                 <label id="lbl-device">Device Type</label>
                 <select name="device" id="in-device" required>
@@ -153,80 +77,54 @@
                     <option value="Android">Android</option>
                 </select>
             </div>
-
-            <div class="form-group">
-                <label id="lbl-reason">Reason for Interest</label>
-                <textarea name="reason" id="in-reason" rows="3" placeholder="I love cooking and want to try new recipes!"></textarea>
-            </div>
-
+            <div class="form-group"><label id="lbl-reason">Reason for Interest</label><textarea name="reason" id="in-reason" rows="3" placeholder="I love cooking and want to try new recipes!"></textarea></div>
             <button type="submit" class="submit-btn" id="btn-submit">Submit Request</button>
         </form>
-
         <a href="index.html" class="back-link" id="btn-back"><i class="fas fa-arrow-left"></i> Back to Main Page</a>
     </div>
 
     <script>
-        function toggleLanguage() {
+        function updateUI(lang) {
             const body = document.getElementById('body-tag');
             const btn = document.getElementById('lang-toggle-btn');
-            
             const elements = {
-                title: document.getElementById('txt-title'),
-                subtitle: document.getElementById('txt-subtitle'),
-                name: document.getElementById('lbl-name'),
-                age: document.getElementById('lbl-age'),
-                country: document.getElementById('lbl-country'),
-                email: document.getElementById('lbl-email'),
-                device: document.getElementById('lbl-device'),
-                reason: document.getElementById('lbl-reason'),
-                submit: document.getElementById('btn-submit'),
-                back: document.getElementById('btn-back'),
-                // Placeholders
-                inName: document.getElementById('in-name'),
-                inCountry: document.getElementById('in-country'),
-                inReason: document.getElementById('in-reason'),
-                optDefault: document.getElementById('opt-default')
+                title: document.getElementById('txt-title'), subtitle: document.getElementById('txt-subtitle'),
+                name: document.getElementById('lbl-name'), age: document.getElementById('lbl-age'),
+                country: document.getElementById('lbl-country'), email: document.getElementById('lbl-email'),
+                device: document.getElementById('lbl-device'), reason: document.getElementById('lbl-reason'),
+                submit: document.getElementById('btn-submit'), back: document.getElementById('btn-back'),
+                inName: document.getElementById('in-name'), inCountry: document.getElementById('in-country'),
+                inReason: document.getElementById('in-reason'), optDefault: document.getElementById('opt-default')
             };
 
-            if (body.dir === 'ltr') {
-                body.dir = 'rtl';
-                body.style.fontFamily = "'Cairo', sans-serif";
-                btn.innerText = 'English';
-                
-                elements.title.innerText = 'طلب تجربة النسخة';
-                elements.subtitle.innerText = 'سجل بياناتك للانضمام لفريق المجربين.';
-                elements.name.innerText = 'الاسم بالكامل';
-                elements.age.innerText = 'السن';
-                elements.country.innerText = 'البلد';
-                elements.email.innerText = 'البريد الإلكتروني';
-                elements.device.innerText = 'نوع الجهاز';
-                elements.reason.innerText = 'لماذا تهتم بـ "طبخة"؟';
-                elements.submit.innerText = 'إرسال الطلب';
-                elements.back.innerHTML = '<i class="fas fa-arrow-left"></i> العودة للصفحة الرئيسية';
-                
-                elements.inName.placeholder = 'حسام محمود';
-                elements.inReason.placeholder = 'أحب الطبخ وأريد تجربة وصفات جديدة!';
-                elements.optDefault.innerText = 'اختر نوع جهازك';
+            if (lang === 'ar') {
+                body.dir = 'rtl'; body.style.fontFamily = "'Cairo', sans-serif"; btn.innerText = 'English';
+                elements.title.innerText = 'طلب تجربة النسخة'; elements.subtitle.innerText = 'سجل بياناتك للانضمام لفريق المجربين.';
+                elements.name.innerText = 'الاسم بالكامل'; elements.age.innerText = 'السن';
+                elements.country.innerText = 'البلد'; elements.email.innerText = 'البريد الإلكتروني';
+                elements.device.innerText = 'نوع الجهاز'; elements.reason.innerText = 'لماذا تهتم بـ "طبخة"؟';
+                elements.submit.innerText = 'إرسال الطلب'; elements.back.innerHTML = '<i class="fas fa-arrow-left"></i> العودة للصفحة الرئيسية';
+                elements.inName.placeholder = 'حسام محمود'; elements.inReason.placeholder = 'أحب الطبخ!'; elements.optDefault.innerText = 'اختر نوع جهازك';
             } else {
-                body.dir = 'ltr';
-                body.style.fontFamily = "'Segoe UI', sans-serif";
-                btn.innerText = 'العربية';
-                
-                elements.title.innerText = 'Request Beta Access';
-                elements.subtitle.innerText = 'Fill in your details to join the testing team.';
-                elements.name.innerText = 'Full Name';
-                elements.age.innerText = 'Age';
-                elements.country.innerText = 'Country';
-                elements.email.innerText = 'Email Address';
-                elements.device.innerText = 'Device Type';
-                elements.reason.innerText = 'Reason for Interest';
-                elements.submit.innerText = 'Submit Request';
-                elements.back.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Main Page';
-                
-                elements.inName.placeholder = 'Hossam Mahmoud';
-                elements.inReason.placeholder = 'I love cooking and want to try new recipes!';
-                elements.optDefault.innerText = 'Choose your device';
+                body.dir = 'ltr'; body.style.fontFamily = "'Segoe UI', sans-serif"; btn.innerText = 'العربية';
+                elements.title.innerText = 'Request Beta Access'; elements.subtitle.innerText = 'Fill in your details to join the testing team.';
+                elements.name.innerText = 'Full Name'; elements.age.innerText = 'Age';
+                elements.country.innerText = 'Country'; elements.email.innerText = 'Email Address';
+                elements.device.innerText = 'Device Type'; elements.reason.innerText = 'Reason for Interest';
+                elements.submit.innerText = 'Submit Request'; elements.back.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Main Page';
+                elements.inName.placeholder = 'Hossam Mahmoud'; elements.inReason.placeholder = 'I love cooking!'; elements.optDefault.innerText = 'Choose your device';
             }
+        }
+
+        function toggleLanguage() {
+            const currentLang = localStorage.getItem('selectedLang') === 'ar' ? 'en' : 'ar';
+            localStorage.setItem('selectedLang', currentLang);
+            updateUI(currentLang);
+        }
+
+        window.onload = function() {
+            const savedLang = localStorage.getItem('selectedLang') || 'en';
+            updateUI(savedLang);
         }
     </script>
 </body>
