@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDTCLJNGN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VDTCLJNGN9');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabkha | Home</title>
@@ -11,161 +19,71 @@
     
     <style>
         :root {
-            --primary-blue: #00227b; 
-            --accent-cyan: #00a0e3;   
-            --bg-color: #000000; 
-            --text-white: #ffffff;
+            --primary-blue: #00227b; --accent-cyan: #00a0e3;   
+            --bg-color: #000000; --text-white: #ffffff;
             --glass-bg: rgba(255, 255, 255, 0.1);
         }
-
         body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-white);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden; 
-            transition: all 0.3s ease;
+            height: 100%; margin: 0; padding: 0;
+            font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color);
+            color: var(--text-white); display: flex; flex-direction: column;
+            overflow: hidden; transition: all 0.3s ease;
         }
-
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 100; }
         .lang-btn {
-            background: var(--glass-bg);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-white);
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            background: var(--glass-bg); border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-white); padding: 8px 15px; border-radius: 20px;
+            cursor: pointer; font-family: 'Cairo', sans-serif; transition: 0.3s;
         }
-
-        .main-content {
-            flex: 1; display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            padding: 10px; box-sizing: border-box;
-        }
-
-        .container {
-            width: 100%; max-width: 900px; text-align: center;
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        .logo {
-            width: 60%; max-width: 240px; height: auto; margin-bottom: -5px;
-            animation: logoZoom 3s ease-out forwards;
-        }
-
-        @keyframes logoZoom {
-            0% { opacity: 0; transform: translateX(-21px) scale(0); }
-            100% { opacity: 1; transform: translateX(-21px) scale(1); }
-        }
-
-        .divider {
-            height: 1px; width: 0; background-color: var(--accent-cyan);
-            margin: 10px auto; opacity: 0.8;
-            animation: expandDivider 1s ease-out forwards; animation-delay: 2.5s;
-        }
-
+        .main-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; }
+        .container { width: 100%; max-width: 900px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .logo { width: 60%; max-width: 240px; animation: logoZoom 3s ease-out forwards; }
+        @keyframes logoZoom { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
+        .divider { height: 1px; width: 0; background-color: var(--accent-cyan); margin: 10px auto; animation: expandDivider 1s ease-out forwards 2.5s; }
         @keyframes expandDivider { to { width: 50px; } }
-
-        h1, .subtitle { opacity: 0; animation: fadeIn 1s ease-out forwards; animation-delay: 3s; }
-        h1 { font-size: 1.2rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin: 5px 0 0 0; }
-        .subtitle { font-size: 0.95rem; color: var(--accent-cyan); margin: 2px 0 25px 0; font-style: italic; }
-
+        h1, .subtitle { opacity: 0; animation: fadeIn 1s ease-out forwards 3s; }
+        h1 { font-size: 1.2rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; margin: 5px 0; }
+        .subtitle { font-size: 0.95rem; color: var(--accent-cyan); margin-bottom: 25px; font-style: italic; }
         @keyframes fadeIn { to { opacity: 1; } }
-
-        .button-group {
-            display: grid; grid-template-columns: 1fr 1.2fr 1fr;
-            gap: 12px; width: 100%; max-width: 800px; align-items: center;
-        }
-
+        .button-group { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 12px; width: 100%; max-width: 800px; }
         .btn {
-            opacity: 0; display: flex; flex-direction: row; align-items: center;
-            justify-content: center; border-radius: 50px; text-decoration: none;
-            transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15);
-            color: var(--text-white); background: var(--glass-bg); height: 50px;
-            padding: 0 25px; white-space: nowrap; animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; display: flex; align-items: center; justify-content: center;
+            border-radius: 50px; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-white); background: var(--glass-bg); height: 50px; padding: 0 25px;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
-
-        .btn-ios { animation-delay: 3.2s; }
-        .btn-main { animation-delay: 3.4s; }
-        .btn-android { animation-delay: 3.6s; }
-
+        .btn-ios { animation-delay: 3.2s; } .btn-main { animation-delay: 3.4s; } .btn-android { animation-delay: 3.6s; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-
-        .btn-text-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.1; }
-        .btn-label-top { font-size: 0.8rem; font-weight: 700; display: block; }
-        .btn-label-bottom { font-size: 0.6rem; opacity: 0.7; font-weight: 400; display: block; }
-
-        [dir="rtl"] .btn i { margin-left: 12px; margin-right: 0; }
-        [dir="ltr"] .btn i { margin-right: 12px; margin-left: 0; }
-        .btn i { font-size: 1.2rem; }
-
-        .btn-main {
-            background-color: var(--primary-blue); border: none;
-            box-shadow: 0 4px 15px rgba(0, 34, 123, 0.3);
-            animation: fadeInUp 0.8s ease-out forwards, buttonPulse 4s infinite ease-in-out 4.2s; 
-        }
-
-        @keyframes buttonPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); background-color: #0033bb; }
-        }
-
-        footer { padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; opacity: 0; animation: fadeIn 1s ease-out forwards; animation-delay: 4s; }
-
-        @media (max-width: 850px) {
-            .button-group { grid-template-columns: 1fr; gap: 10px; max-width: 280px; }
-            .btn-main { order: -1; }
-            .logo { transform: translateX(0); width: 50%; }
-            .lang-switch { top: 10px; right: 10px; }
-        }
+        .btn-main { background-color: var(--primary-blue); border: none; animation: fadeInUp 0.8s forwards, buttonPulse 4s infinite 4.2s; }
+        @keyframes buttonPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        [dir="rtl"] .btn i { margin-left: 12px; } [dir="ltr"] .btn i { margin-right: 12px; }
+        footer { padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; }
+        @media (max-width: 850px) { .button-group { grid-template-columns: 1fr; max-width: 280px; } .btn-main { order: -1; } }
     </style>
 </head>
 <body id="body-tag" dir="ltr">
-
-    <div class="lang-switch">
-        <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">العربية</button>
-    </div>
-
+    <div class="lang-switch"><button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">العربية</button></div>
     <div class="main-content">
         <div class="container">
             <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
             <div class="divider"></div>
             <h1 id="txt-title">Coming Soon</h1>
             <p class="subtitle" id="txt-subtitle">Get ready to let the magic begin...</p>
-
             <div class="button-group">
-                <a href="https://testflight.apple.com/join/pUev9aFE" class="btn btn-ios">
+                <a href="https://testflight.apple.com/join/pUev9aFE" class="btn btn-ios" onclick="gtag('event', 'click_ios_beta');">
                     <i class="fab fa-apple"></i>
-                    <div class="btn-text-wrapper">
-                        <span class="btn-label-top" id="txt-ios-top">iOS Beta</span>
-                        <span class="btn-label-bottom" id="txt-ios-bottom">(TestFlight)</span>
-                    </div>
+                    <div class="btn-text-wrapper"><span class="btn-label-top" id="txt-ios-top">iOS Beta</span><span class="btn-label-bottom" id="txt-ios-bottom">(TestFlight)</span></div>
                 </a>
-                
-                <a href="Request.html" class="btn btn-main">
-                    <div class="btn-text-wrapper">
-                        <span class="btn-label-top" id="txt-main-btn" style="font-size: 1rem;">Join the Tabkhaweya</span>
-                    </div>
+                <a href="Request.html" class="btn btn-main" onclick="gtag('event', 'click_join_request');">
+                    <div class="btn-text-wrapper"><span class="btn-label-top" id="txt-main-btn" style="font-size: 1rem;">Join the Tabkhaweya</span></div>
                 </a>
-                
-                <a href="https://tabkha4android.blob.core.windows.net/tabkha4androidalpha/Tabkha%20(Android%20Alpha).apk" class="btn btn-android">
+                <a href="https://tabkha4android.blob.core.windows.net/tabkha4androidalpha/Tabkha%20(Android%20Alpha).apk" class="btn btn-android" onclick="gtag('event', 'click_android_alpha');">
                     <i class="fab fa-android"></i>
-                    <div class="btn-text-wrapper">
-                        <span class="btn-label-top" id="txt-android-top">Android Alpha</span>
-                        <span class="btn-label-bottom" id="txt-android-bottom">(Direct Download)</span>
-                    </div>
+                    <div class="btn-text-wrapper"><span class="btn-label-top" id="txt-android-top">Android Alpha</span><span class="btn-label-bottom" id="txt-android-bottom">(Direct Download)</span></div>
                 </a>
             </div>
         </div>
     </div>
-
     <footer id="txt-footer">&copy; 2026 Tawwarly for Technical Consultancy</footer>
 
     <script>
@@ -173,56 +91,32 @@
             const body = document.getElementById('body-tag');
             const btn = document.getElementById('lang-toggle-btn');
             const elements = {
-                title: document.getElementById('txt-title'),
-                subtitle: document.getElementById('txt-subtitle'),
-                iosTop: document.getElementById('txt-ios-top'),
-                iosBottom: document.getElementById('txt-ios-bottom'),
-                mainBtn: document.getElementById('txt-main-btn'),
-                androidTop: document.getElementById('txt-android-top'),
-                androidBottom: document.getElementById('txt-android-bottom'),
-                footer: document.getElementById('txt-footer')
+                title: document.getElementById('txt-title'), subtitle: document.getElementById('txt-subtitle'),
+                iosTop: document.getElementById('txt-ios-top'), iosBottom: document.getElementById('txt-ios-bottom'),
+                mainBtn: document.getElementById('txt-main-btn'), androidTop: document.getElementById('txt-android-top'),
+                androidBottom: document.getElementById('txt-android-bottom'), footer: document.getElementById('txt-footer')
             };
-
             if (lang === 'ar') {
-                body.dir = 'rtl';
-                body.style.fontFamily = "'Cairo', sans-serif";
-                btn.innerText = 'English';
-                elements.title.innerText = 'قريباً جداً';
-                elements.subtitle.innerText = 'استعدوا.. السحر على وشك البدء';
-                elements.iosTop.innerText = 'نسخة iOS';
-                elements.iosBottom.innerText = '(TestFlight)';
-                elements.mainBtn.innerText = 'انضم للطبخاوية';
-                elements.androidTop.innerText = 'نسخة أندرويد';
-                elements.androidBottom.innerText = '(تحميل مباشر)';
-                elements.footer.innerHTML = '&copy; ٢٠٢٦ طوَرلي للاستشارات التقنية';
+                body.dir = 'rtl'; body.style.fontFamily = "'Cairo', sans-serif"; btn.innerText = 'English';
+                elements.title.innerText = 'قريباً جداً'; elements.subtitle.innerText = 'استعدوا.. السحر على وشك البدء';
+                elements.iosTop.innerText = 'نسخة iOS'; elements.iosBottom.innerText = '(تست فلايت)';
+                elements.mainBtn.innerText = 'انضم للطبخاوية'; elements.androidTop.innerText = 'نسخة أندرويد';
+                elements.androidBottom.innerText = '(تحميل مباشر)'; elements.footer.innerHTML = '&copy; ٢٠٢٦ طورلي للاستشارات التقنية';
             } else {
-                body.dir = 'ltr';
-                body.style.fontFamily = "'Segoe UI', sans-serif";
-                btn.innerText = 'العربية';
-                elements.title.innerText = 'Coming Soon';
-                elements.subtitle.innerText = 'Get ready to let the magic begin...';
-                elements.iosTop.innerText = 'iOS Beta';
-                elements.iosBottom.innerText = '(TestFlight)';
-                elements.mainBtn.innerText = 'Join the Tabkhaweya';
-                elements.androidTop.innerText = 'Android Alpha';
-                elements.androidBottom.innerText = '(Direct Download)';
-                elements.footer.innerHTML = '&copy; 2026 Tawwarly for Technical Consultancy';
+                body.dir = 'ltr'; body.style.fontFamily = "'Segoe UI', sans-serif"; btn.innerText = 'العربية';
+                elements.title.innerText = 'Coming Soon'; elements.subtitle.innerText = 'Get ready to let the magic begin...';
+                elements.iosTop.innerText = 'iOS Beta'; elements.iosBottom.innerText = '(TestFlight)';
+                elements.mainBtn.innerText = 'Join the Tabkhaweya'; elements.androidTop.innerText = 'Android Alpha';
+                elements.androidBottom.innerText = '(Direct Download)'; elements.footer.innerHTML = '&copy; 2026 Tawwarly for Technical Consultancy';
             }
         }
-
         function toggleLanguage() {
             const currentLang = localStorage.getItem('selectedLang') === 'ar' ? 'en' : 'ar';
             localStorage.setItem('selectedLang', currentLang);
+            gtag('event', 'change_language', { 'language': currentLang });
             updateUI(currentLang);
         }
-
-        window.onload = function() {
-            const savedLang = localStorage.getItem('selectedLang') || 'en';
-            updateUI(savedLang);
-        }
+        window.onload = function() { updateUI(localStorage.getItem('selectedLang') || 'en'); }
     </script>
 </body>
 </html>
-
-
-
