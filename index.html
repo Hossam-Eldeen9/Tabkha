@@ -27,7 +27,7 @@
             height: 100%; margin: 0; padding: 0;
             font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color);
             color: var(--text-white); display: flex; flex-direction: column;
-            overflow: hidden; transition: all 0.3s ease;
+            overflow-y: auto; overflow-x: hidden; transition: all 0.3s ease;
         }
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 100; }
         .lang-btn {
@@ -35,7 +35,7 @@
             color: var(--text-white); padding: 8px 15px; border-radius: 20px;
             cursor: pointer; font-family: 'Cairo', sans-serif; transition: 0.3s;
         }
-        .main-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; }
+        .main-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; min-height: min-content; }
         .container { width: 100%; max-width: 900px; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .logo { width: 60%; max-width: 240px; animation: logoZoom 3s ease-out forwards; }
         @keyframes logoZoom {
@@ -103,16 +103,16 @@
         [dir="rtl"] .btn i { margin-left: 12px; } [dir="ltr"] .btn i { margin-right: 12px; }
         .btn i { font-size: 1.2rem; }
 
-        /* Social Media Styling */
+        /* Fixed Social Media Styling */
         .social-links { 
             display: flex; gap: 20px; justify-content: center; 
-            margin-top: 40px; margin-bottom: 10px;
+            margin-top: 30px; margin-bottom: 10px;
             opacity: 0; animation: fadeIn 1s ease-out forwards 3.8s;
         }
-        .social-links a { color: var(--text-white); font-size: 1.5rem; transition: 0.3s; opacity: 0.7; }
+        .social-links a { color: var(--text-white); font-size: 1.5rem; transition: 0.3s; opacity: 0.7; text-decoration: none; }
         .social-links a:hover { opacity: 1; transform: translateY(-3px); }
 
-        footer { padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; }
+        footer { padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; width: 100%; }
         @media (max-width: 850px) { .button-group { grid-template-columns: 1fr; max-width: 280px; } .btn-main { order: -1; } .btn { height: 55px; } }
     </style>
 </head>
@@ -147,11 +147,11 @@
             </div>
 
             <div class="social-links">
-                <a href="tiktok.com/@tabkha.top" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="youtube.com/@tabkhatop" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="x.com/tabkha_top" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://tiktok.com/@tabkha.top" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@tabkhatop" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/tabkha_top" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="https://www.facebook.com/tabkha.top" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="instagram.com/tabkha.top" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/tabkha.top" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
 
         </div>
