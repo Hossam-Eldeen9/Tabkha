@@ -43,7 +43,6 @@
             100% { opacity: 1; transform: translateX(-19px) scale(1); }
         }
 
-        /* نسخة الموبايل - ضيفنا إزاحة للشمال بمقدار 25 بيكسل */
         @keyframes logoZoomMobile {
             0% { opacity: 0; transform: translateX(-19px) scale(0); }
             100% { opacity: 1; transform: translateX(-19px) scale(1); }
@@ -69,7 +68,6 @@
         .btn-label-top { font-size: 0.85rem; font-weight: 700; display: block; }
         .btn-label-bottom { font-size: 0.65rem; opacity: 0.7; font-weight: 400; display: block; }
 
-        /* تأثير اللمعة والنبض للزرار الرئيسي */
         .btn-main { 
             background-color: var(--primary-blue); 
             border: none; 
@@ -105,6 +103,15 @@
         [dir="rtl"] .btn i { margin-left: 12px; } [dir="ltr"] .btn i { margin-right: 12px; }
         .btn i { font-size: 1.2rem; }
 
+        /* Social Media Styling */
+        .social-links { 
+            display: flex; gap: 20px; justify-content: center; 
+            margin-top: 40px; margin-bottom: 10px;
+            opacity: 0; animation: fadeIn 1s ease-out forwards 3.8s;
+        }
+        .social-links a { color: var(--text-white); font-size: 1.5rem; transition: 0.3s; opacity: 0.7; }
+        .social-links a:hover { opacity: 1; transform: translateY(-3px); }
+
         footer { padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; }
         @media (max-width: 850px) { .button-group { grid-template-columns: 1fr; max-width: 280px; } .btn-main { order: -1; } .btn { height: 55px; } }
     </style>
@@ -138,6 +145,15 @@
                     </div>
                 </a>
             </div>
+
+            <div class="social-links">
+                <a href="tiktok.com/@tabkha.top" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="youtube.com/@tabkhatop" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="x.com/tabkha_top" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/tabkha.top" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="instagram.com/tabkha.top" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+
         </div>
     </div>
     <footer id="txt-footer">&copy; 2026 Tawwarly for Technical Consultancy</footer>
@@ -176,4 +192,3 @@
     </script>
 </body>
 </html>
-
