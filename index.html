@@ -23,7 +23,6 @@
             --bg-color: #000000; --text-white: #ffffff;
             --glass-bg: rgba(255, 255, 255, 0.1);
         }
-        /* Lock height to 100% of viewport to prevent scrolling */
         body, html {
             height: 100vh; margin: 0; padding: 0;
             font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color);
@@ -36,10 +35,7 @@
             color: var(--text-white); padding: 8px 15px; border-radius: 20px;
             cursor: pointer; font-family: 'Cairo', sans-serif; transition: 0.3s;
         }
-        .main-content { 
-            flex: 1; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; padding: 10px; 
-        }
+        .main-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; }
         .container { width: 100%; max-width: 900px; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .logo { width: 60%; max-width: 200px; animation: logoZoom 3s ease-out forwards; }
         
@@ -64,7 +60,6 @@
             animation: fadeInUp 0.8s ease-out forwards;
         }
         .btn-ios { animation-delay: 3.2s; } .btn-main { animation-delay: 3.4s; } .btn-android { animation-delay: 3.6s; }
-        
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         
         .btn-text-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2; }
@@ -80,24 +75,16 @@
         [dir="rtl"] .btn i { margin-left: 10px; } [dir="ltr"] .btn i { margin-right: 10px; }
         .btn i { font-size: 1.1rem; }
 
-        .social-links { 
-            display: flex; gap: 25px; justify-content: center; 
-            margin-top: 25px;
-            opacity: 0; animation: fadeIn 1s ease-out forwards 3.8s;
-        }
+        .social-links { display: flex; gap: 25px; justify-content: center; margin-top: 25px; opacity: 0; animation: fadeIn 1s ease-out forwards 3.8s; }
         .social-links a { color: var(--text-white); font-size: 1.4rem; transition: 0.3s; opacity: 0.7; text-decoration: none; }
         .social-links a:hover { opacity: 1; transform: translateY(-3px); }
 
-        footer { 
-            padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; 
-            width: 100%; position: relative; z-index: 10;
-        }
+        /* FOOTER STYLING - Stealth Link */
+        footer { padding: 15px 0; font-size: 0.7rem; text-align: center; width: 100%; }
+        .stealth-link { color: #444; text-decoration: none; cursor: default; }
+        .stealth-link:hover { color: #444; } /* No change on hover keeps it hidden */
 
-        @media (max-width: 850px) { 
-            .button-group { grid-template-columns: 1fr; max-width: 250px; } 
-            .btn-main { order: -1; } .btn { height: 48px; }
-            .logo { max-width: 160px; }
-        }
+        @media (max-width: 850px) { .button-group { grid-template-columns: 1fr; max-width: 250px; } .btn-main { order: -1; } .btn { height: 48px; } }
     </style>
 </head>
 <body id="body-tag" dir="ltr">
@@ -142,7 +129,11 @@
         </div>
     </div>
 
-    <footer id="txt-footer">&copy; 2026 Tawwarly for Technical Consultancy</footer>
+    <footer id="txt-footer">
+        <a href="https://tawwarly.com/" target="_blank" class="stealth-link" id="footer-link-text">
+            &copy; 2026 Tawwarly for Technical Consultancy
+        </a>
+    </footer>
 
     <script>
         function updateUI(lang) {
@@ -152,7 +143,7 @@
                 title: document.getElementById('txt-title'), subtitle: document.getElementById('txt-subtitle'),
                 iosTop: document.getElementById('txt-ios-top'), iosBottom: document.getElementById('txt-ios-bottom'),
                 mainBtn: document.getElementById('txt-main-btn'), androidTop: document.getElementById('txt-android-top'),
-                androidBottom: document.getElementById('txt-android-bottom'), footer: document.getElementById('txt-footer')
+                androidBottom: document.getElementById('txt-android-bottom'), footer: document.getElementById('footer-link-text')
             };
             if (lang === 'ar') {
                 body.dir = 'rtl'; body.style.fontFamily = "'Cairo', sans-serif"; btn.innerText = 'English';
@@ -178,5 +169,3 @@
     </script>
 </body>
 </html>
-
-
