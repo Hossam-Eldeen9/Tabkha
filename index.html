@@ -23,11 +23,12 @@
             --bg-color: #000000; --text-white: #ffffff;
             --glass-bg: rgba(255, 255, 255, 0.1);
         }
+        /* Fixed: Use vh units to lock the height to the viewport */
         body, html {
-            height: 100%; margin: 0; padding: 0;
+            height: 100vh; margin: 0; padding: 0;
             font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color);
             color: var(--text-white); display: flex; flex-direction: column;
-            overflow-y: auto; overflow-x: hidden; transition: all 0.3s ease;
+            overflow: hidden; /* Prevents scrolling */
         }
         .lang-switch { position: absolute; top: 20px; right: 20px; z-index: 100; }
         .lang-btn {
@@ -35,18 +36,23 @@
             color: var(--text-white); padding: 8px 15px; border-radius: 20px;
             cursor: pointer; font-family: 'Cairo', sans-serif; transition: 0.3s;
         }
-        .main-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; min-height: min-content; }
+        /* Fixed: Flex content to push footer down */
+        .main-content { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 10px; 
+        }
         .container { width: 100%; max-width: 900px; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .logo { width: 60%; max-width: 240px; animation: logoZoom 3s ease-out forwards; }
+        
         @keyframes logoZoom {
             0% { opacity: 0; transform: translateX(-19px) scale(0); }
             100% { opacity: 1; transform: translateX(-19px) scale(1); }
         }
 
-        @keyframes logoZoomMobile {
-            0% { opacity: 0; transform: translateX(-19px) scale(0); }
-            100% { opacity: 1; transform: translateX(-19px) scale(1); }
-        }
         .divider { height: 1px; width: 0; background-color: var(--accent-cyan); margin: 10px auto; animation: expandDivider 1s ease-out forwards 2.5s; }
         @keyframes expandDivider { to { width: 50px; } }
         h1, .subtitle { opacity: 0; animation: fadeIn 1s ease-out forwards 3s; }
@@ -103,21 +109,35 @@
         [dir="rtl"] .btn i { margin-left: 12px; } [dir="ltr"] .btn i { margin-right: 12px; }
         .btn i { font-size: 1.2rem; }
 
-        /* Fixed Social Media Styling */
         .social-links { 
             display: flex; gap: 20px; justify-content: center; 
-            margin-top: 30px; margin-bottom: 10px;
+            margin-top: 25px;
             opacity: 0; animation: fadeIn 1s ease-out forwards 3.8s;
         }
         .social-links a { color: var(--text-white); font-size: 1.5rem; transition: 0.3s; opacity: 0.7; text-decoration: none; }
         .social-links a:hover { opacity: 1; transform: translateY(-3px); }
 
-        footer { padding: 15px 0; font-size: 0.7rem; color: #444; text-align: center; width: 100%; }
-        @media (max-width: 850px) { .button-group { grid-template-columns: 1fr; max-width: 280px; } .btn-main { order: -1; } .btn { height: 55px; } }
+        /* Fixed: Pin footer to bottom without scroll */
+        footer { 
+            padding-bottom: 20px; 
+            font-size: 0.7rem; 
+            color: #444; 
+            text-align: center; 
+            width: 100%;
+        }
+
+        @media (max-width: 850px) { 
+            .button-group { grid-template-columns: 1fr; max-width: 280px; } 
+            .btn-main { order: -1; } 
+            .btn { height: 50px; }
+            .subtitle { margin-bottom: 15px; }
+            .social-links { margin-top: 15px; }
+        }
     </style>
 </head>
 <body id="body-tag" dir="ltr">
     <div class="lang-switch"><button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">العربية</button></div>
+    
     <div class="main-content">
         <div class="container">
             <img src="Tabkha's Logo for the website.png" alt="Tabkha Logo" class="logo">
@@ -153,9 +173,9 @@
                 <a href="https://www.facebook.com/tabkha.top" target="_blank"><i class="fab fa-facebook"></i></a>
                 <a href="https://instagram.com/tabkha.top" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
-
         </div>
     </div>
+
     <footer id="txt-footer">&copy; 2026 Tawwarly for Technical Consultancy</footer>
 
     <script>
